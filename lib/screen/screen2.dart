@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../static/static_function.dart';
+import 'package:sum/static/static_function.dart';
 
 class Screen2 extends StatefulWidget {
   const Screen2({Key? key}) : super(key: key);
@@ -52,6 +51,7 @@ class _Screen2State extends State<Screen2> {
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+      )
     );
   }
 }
