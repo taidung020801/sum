@@ -13,7 +13,7 @@ class _Screen1State extends State<Screen1> {
   final String title = "Màn hình phép cộng 1";
   static const String content = "Đây là màn hình phép cộng 1";
 
-  void onClick() async {
+  void _onClick() async {
     print(StaticFunction);
     if(StaticFunction.goRoot != null){
       StaticFunction.goRoot!();
@@ -22,28 +22,36 @@ class _Screen1State extends State<Screen1> {
     }
   }
 
+  Future<bool> _onWillPop() async {
+    Navigator.pop(context);
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                primary: Colors.blue,
-              ),
-              onPressed: () {
-                onClick();
-              },
-              child: Text('Về lại trang gốc'),
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(title),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  style: TextButton.styleFrom(
+                    primary: Colors.blue,
+                  ),
+                  onPressed: () {
+                    _onClick();
+                  },
+                  child: Text('Về lại trang gốc'),
+                ),
+              ],
             ),
-          ],
-        ),
-      )// This trailing comma makes auto-formatting nicer for build methods.
+          )// This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
