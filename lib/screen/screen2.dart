@@ -15,6 +15,7 @@ class _Screen2State extends State<Screen2> {
   static const String content = "Đây là màn hình phép cộng 2";
 
   void onClick() async {
+    print(StaticFunction);
     if(StaticFunction.goRoot != null){
       StaticFunction.goRoot!();
     }else{
